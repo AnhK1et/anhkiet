@@ -1,22 +1,44 @@
-function xoaKyTuTrang() {
-    // Lấy giá trị từ input
-    var chuoi = document.getElementById("inputChuoi").value;
-    
-    // Loại bỏ các ký tự trắng ở đầu và cuối chuỗi
-    chuoi = chuoi.trim();
-    
-    // Thay thế nhiều khoảng trắng giữa các từ bằng một khoảng trắng duy nhất
-    chuoi = chuoi.replace(/\s+/g, ' ');
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('studentForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+        
+        var maSV = document.getElementById("maSV").value;
+        var hoTen = document.getElementById("hoTen").value;
+        var email = document.getElementById("email").value;
+        var dienThoai = document.getElementById("dienThoai").value;
+        var lop = document.getElementById("lop").value;
 
-    // Hiển thị kết quả
-    document.getElementById("ketQua").innerText = chuoi;
-    var words = chuoi.split(' ');
-    for (var i = 0; i < words.length; i++) {
-        if (words[i] !== "") { // Kiểm tra xem từ có rỗng không
-            words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+        var maSVPattern = /^21[0-9]{8}$/;
+        var phonePattern = /^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b$/;
+        var lopPattern = /^CCQ.{5,6}[1-2]{1}$/;
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!maSVPattern.test(maSV)) {
+            alert("Mã SV phải có 10 ký tự số và bắt đầu bằng 21");
+            return;
         }
-    }
 
-    // Kết hợp lại thành chuỗi và hiển thị kết quả
-    document.getElementById("ketQua").innerText = words.join(' ');
-}
+        if (hoTen.trim() === "") {
+            alert("Họ Tên không được để trống");
+            return;
+        }
+
+        if (!emailPattern.test(email)) {
+            alert("Email không hợp lệ");
+            return;
+        }
+
+        if (!phonePattern.test(dienThoai)) {
+            alert("Số điện thoại không hợp lệ");
+            return;
+        }
+
+        if (!lopPattern.test(lop)) {
+            alert("Lớp không hợp lệ");
+            return;
+        }
+
+        alert("Form đã được gửi thành công!");
+        // Đây là nơi để gửi dữ liệu form đi nếu cần
+    });
+});

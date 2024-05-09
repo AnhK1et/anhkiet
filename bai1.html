@@ -3,16 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xóa ký tự trắng</title>
-
-       <script src="bai1.js"></script>
-
+<title>Form Thông Tin Sinh Viên</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<h2>Nhập chuỗi và xóa ký tự trắng</h2>
-<input type="text" id="inputChuoi" placeholder="Nhập chuỗi...">
-<button onclick="xoaKyTuTrang()">Xóa ký tự trắng</button>
-<p id="ketQua"></p>
-<script src="bai1.js"></script>
+<h2>Form Thông Tin Sinh Viên</h2>
+<form id="studentForm">
+    <label for="maSV">Mã SV:</label>
+    <input type="text" id="maSV" name="maSV" required>
+    <br>
+    <label for="hoTen">Họ Tên:</label>
+    <input type="text" id="hoTen" name="hoTen" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="dienThoai">Điện Thoại:</label>
+    <input type="tel" id="dienThoai" name="dienThoai" required>
+    <br>
+    <label for="lop">Lớp:</label>
+    <input type="text" id="lop" name="lop" required>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+<script src="script.js"></script>
 </body>
 </html>
