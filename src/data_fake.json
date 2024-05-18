@@ -1,0 +1,9 @@
+{
+    "products" : [
+        {"ten":"ao thun 1", "gia":"999999"},
+        {"ten":"ao thun 2", "gia":"999999"},
+        {"ten":"ao thun 3", "gia":"999999"},
+        {"ten":"ao thun 4", "gia":"999999"},
+        {"ten":"ao thun 5", "gia":"999999"}
+    ]
+}
